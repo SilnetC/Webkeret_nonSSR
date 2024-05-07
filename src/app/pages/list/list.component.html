@@ -1,0 +1,139 @@
+<div>
+      <h1>Elérhető konfigurációk</h1>
+</div>
+
+<div class="card-container">
+      <h2>AMD Konfigok</h2>
+      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let config of amdConfigs">
+                  <mat-card>
+                        <mat-card-header>
+                              <mat-card-title>{{config.name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="../../../assets/PC/gamerPC.jpeg" alt="Gamer pc">
+                        <mat-card-content>
+                              <p [ngClass]="config.cpu_brand === 'Intel' ? 'intel' : 'amd'"><span>CPU:</span>
+                                    {{config.cpu}}</p>
+                              <p><span>GPU:</span> {{config.gpu}}</p>
+                              <p><span>Memória:</span> {{config.ram}}</p>
+                              <p><span>Alaplap:</span> {{config.mobo}}</p>
+                              <p><span>Gépház</span> {{config.case}}</p>
+                              <p><span>Hűtés:</span> {{config.cpu_cooler}}</p>
+                              <p><span>Tápegység:</span> {{config.psu}}</p>
+                              <p><span>SSD:</span> {{config.ssd}}</p>
+                              <p><span>Merevlemez:</span> {{config.hdd}}</p>
+                              <p style="color: orange;"><span>Létrehozva:</span> {{config.createTime}}</p>
+                        </mat-card-content>
+                        <mat-card-actions align="end">
+                              <button mat-flat-button color="primary"
+                                    (click)="editConfig(config.id)">Szerkesztés</button>
+                              <button mat-flat-button color="primary" (click)="removeConfig(config.id)">Törlés</button>
+                        </mat-card-actions>
+                  </mat-card>
+            </div>
+      </div>
+
+      <h2>Intel Konfigok</h2>
+      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let config of intelConfigs">
+                  <mat-card>
+                        <mat-card-header>
+                              <mat-card-title>{{config.name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="../../../assets/PC/gamerPC.jpeg" alt="Gamer pc">
+                        <mat-card-content>
+                              <p [ngClass]="config.cpu_brand === 'Intel' ? 'intel' : 'amd'"><span>CPU:</span>
+                                    {{config.cpu}}</p>
+                              <p><span>GPU:</span> {{config.gpu}}</p>
+                              <p><span>Memória:</span> {{config.ram}}</p>
+                              <p><span>Alaplap:</span> {{config.mobo}}</p>
+                              <p><span>Gépház</span> {{config.case}}</p>
+                              <p><span>Hűtés:</span> {{config.cpu_cooler}}</p>
+                              <p><span>Tápegység:</span> {{config.psu}}</p>
+                              <p><span>SSD:</span> {{config.ssd}}</p>
+                              <p><span>Merevlemez:</span> {{config.hdd}}</p>
+                              <p style="color: orange;"><span>Létrehozva:</span> {{config.createTime}}</p>
+                        </mat-card-content>
+                        <mat-card-actions align="end">
+                              <button mat-flat-button color="primary"
+                                    (click)="editConfig(config.id)">Szerkesztés</button>
+                              <button mat-flat-button color="primary" (click)="removeConfig(config.id)">Törlés</button>
+                        </mat-card-actions>
+                  </mat-card>
+            </div>
+      </div>
+</div>
+
+<div *ngIf="currentConfigId">
+      <h2>Konfig szerkeszétse</h2>
+      <div class="add_form">
+            <div>
+                  <mat-form-field>
+                        <mat-label for="configName">Konfigurácó neve: </mat-label>
+                        <input matInput type="text" [(ngModel)]="ConfigObject['name']">
+                  </mat-form-field>
+                  <mat-form-field>
+                        <mat-label>Gépház: </mat-label>
+                        <mat-select [(ngModel)]="ConfigObject['case']">
+                              <mat-option [value]="currentConfig?.case">{{currentConfig?.case}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <mat-label for="cpu_brand">Processzor típus: </mat-label>
+                        <mat-select [(ngModel)]="ConfigObject['cpu_brand']">
+                              <mat-option [value]="currentConfig?.cpu_brand">{{currentConfig?.cpu_brand}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <mat-label for="processzor">Processzor: </mat-label>
+                        <mat-select [(ngModel)]="ConfigObject['cpu']">
+                              <mat-option [value]="currentConfig?.cpu">{{currentConfig?.cpu}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <mat-label for="motherboard">Alaplap: </mat-label>
+                        <mat-select [(ngModel)]="ConfigObject['mobo']">
+                              <mat-option [value]="currentConfig?.mobo">{{currentConfig?.mobo}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <mat-label for="ram">Memória: </mat-label>
+                        <mat-select [(ngModel)]="ConfigObject['ram']">
+                              <mat-option [value]="currentConfig?.ram">{{currentConfig?.ram}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <mat-label for="gpu">Videókártya: </mat-label>
+                        <mat-select [(ngModel)]="ConfigObject['gpu']">
+                              <mat-option [value]="currentConfig?.gpu">{{currentConfig?.gpu}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <mat-label for="cpu_cooler">Processzorhűtő: </mat-label>
+                        <mat-select [(ngModel)]="ConfigObject['cpu_cooler']">
+                              <mat-option [value]="currentConfig?.cpu_cooler">{{currentConfig?.cpu_cooler}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <mat-label for="psu">Tápegység: </mat-label>
+                        <mat-select [(ngModel)]="ConfigObject['psu']">
+                              <mat-option [value]="currentConfig?.psu">{{currentConfig?.psu}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <mat-label for="ssd">SSD meghajtó: </mat-label>
+                        <mat-select [(ngModel)]="ConfigObject['ssd']">
+                              <mat-option [value]="currentConfig?.ssd">{{currentConfig?.ssd}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <mat-label for="hdd">Merevlemez: </mat-label>
+                        <mat-select [(ngModel)]="ConfigObject['hdd']">
+                              <mat-option [value]="currentConfig?.hdd">{{currentConfig?.hdd}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" (click)="updateConfig()">Mentés</button>
+            <button mat-raised-button color="primary" (click)="closeForm()">Bezár</button>
+      </div>
+</div>

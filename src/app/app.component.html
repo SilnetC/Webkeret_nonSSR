@@ -1,0 +1,71 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <app-menu (selectedMenu)="changePage($event)" [currentPage]="page" *ngIf="page"
+      (onCloseSidenav)="onClose($event, sidenav)" [loggedUser]="loggedUser" (onLogout)="logout($event)"></app-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="navbar-color">
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="toggleSidenav(sidenav)">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div>
+        <a routerLink="/landing">
+          <img src="../assets/PC/logo.png" alt="Logo" height="30"> <!-- Add your logo here -->
+          PC Config
+        </a>
+      </div>
+      <!-- <div>PC Config</div> -->
+      <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="10px" class="nav-items">
+          <li>
+            <a routerLink="/landing">Főoldal</a>
+          </li>
+          <li>
+            <a routerLink="/compare">Összehasonlítás</a>
+          </li>
+          <li>
+            <a routerLink="/list">Listázás</a>
+          </li>
+          <li>
+            <a routerLink="/build">Build</a>
+          </li>
+          <li *ngIf="!(loggedUser)">
+            <a routerLink="/login">Bejelentkezés</a>
+          </li>
+          <li *ngIf="loggedUser">
+            <a routerLink="/login" (click)="logout()">Kijelentkezés</a>
+          </li>
+          <li *ngIf="!(loggedUser)">
+            <a routerLink="/registration">Regisztráció</a>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <ng-container [ngSwitch]="page">
+  <ng-container *ngSwitchCase="'landing'">
+    <div class="landing-page">
+      <app-landing [headingText]="'Üdv a PC Konfig weboldalán!'"></app-landing>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'compare'">
+    <app-compare></app-compare>
+  </ng-container>
+  <ng-container *ngSwitchCase="'list'">
+    <app-list></app-list>
+  </ng-container>
+  <ng-container *ngSwitchCase="'build'">
+    <app-build></app-build>
+  </ng-container>
+  <ng-container *ngSwitchCase="'login'">
+    <app-login></app-login>
+  </ng-container>
+  <ng-container *ngSwitchCase="'registration'">
+    <app-registration></app-registration>
+  </ng-container>
+</ng-container> -->

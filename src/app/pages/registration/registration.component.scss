@@ -1,0 +1,43 @@
+.registration_section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+}
+
+form {
+      display: inline-grid;
+      width: 50%;
+      align-self: center;
+}
+
+.register_button {
+      padding: 15px;
+}
+
+button {
+      width: 200px;
+}
+
+h1 {
+      margin-bottom: 50px;
+}
+
+p {
+      margin-top: 20px;
+      margin-bottom: 20px;
+}
+
+.name_section {
+      width: 100%;
+      display: inline-grid;
+}
+
+.regisztracio {
+      cursor: pointer;
+}
+
+.regisztracio:hover {
+      color: darkcyan;
+} 

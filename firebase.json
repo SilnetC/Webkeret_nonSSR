@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "pc-project",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

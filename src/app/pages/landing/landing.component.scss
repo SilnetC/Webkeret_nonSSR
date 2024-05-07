@@ -1,0 +1,33 @@
+div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+}
+
+.landing-page {
+      padding: 30px;
+}
+
+.nvidia {
+      color: #76B900;
+}
+
+.amd {
+      color: #ED1C24;
+}
+
+mat-card {
+      margin-top: 30px;
+      margin-bottom: 30px;
+}
+
+mat-card-title {
+      margin-top: 20px;
+      margin-bottom: 20px;
+}
+
+p {
+      margin-top: 10px;
+}

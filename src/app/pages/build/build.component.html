@@ -1,0 +1,71 @@
+<div class="add_form">
+      <h1>Új konfiguráció létrehozása</h1>
+      <div>
+            <mat-form-field>
+                  <mat-label for="configName">Konfigurácó neve: </mat-label>
+                  <input matInput type="text" [(ngModel)]="ConfigObject['name']">
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-label>Gépház: </mat-label>
+                  <mat-select [(ngModel)]="ConfigObject['case']">
+                        <mat-option *ngFor="let gephaz of PCparts['case']" [value]="gephaz">{{gephaz}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-label for="cpu_brand">Processzor típus: </mat-label>
+                  <mat-select [(ngModel)]="ConfigObject['cpu_brand']" (ngModelChange)="updateCpuList()">
+                        <mat-option *ngFor="let brand of PCparts['cpu_brand']" [value]="brand">{{brand}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-label for="processzor">Processzor: </mat-label>
+                  <mat-select [(ngModel)]="ConfigObject['cpu']">
+                        <mat-option *ngFor="let proc of currentCPUList" [value]="proc">{{proc}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-label for="motherboard">Alaplap: </mat-label>
+                  <mat-select [(ngModel)]="ConfigObject['mobo']">
+                        <mat-option *ngFor="let mobo of PCparts['mobo']" [value]="mobo">{{mobo}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-label for="ram">Memória: </mat-label>
+                  <mat-select [(ngModel)]="ConfigObject['ram']">
+                        <mat-option *ngFor="let ram of PCparts['ram']" [value]="ram">{{ram}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-label for="gpu">Videókártya: </mat-label>
+                  <mat-select [(ngModel)]="ConfigObject['gpu']">
+                        <mat-option *ngFor="let gpu of PCparts['gpu']" [value]="gpu">{{gpu}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-label for="cpu_cooler">Processzorhűtő: </mat-label>
+                  <mat-select [(ngModel)]="ConfigObject['cpu_cooler']">
+                        <mat-option *ngFor="let cooler of PCparts['cpu_cooler']"
+                              [value]="cooler">{{cooler}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-label for="psu">Tápegység: </mat-label>
+                  <mat-select [(ngModel)]="ConfigObject['psu']">
+                        <mat-option *ngFor="let psu of PCparts['psu']" [value]="psu">{{psu}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-label for="ssd">SSD meghajtó: </mat-label>
+                  <mat-select [(ngModel)]="ConfigObject['ssd']">
+                        <mat-option *ngFor="let ssd of PCparts['ssd']" [value]="ssd">{{ssd}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-label for="hdd">Merevlemez: </mat-label>
+                  <mat-select [(ngModel)]="ConfigObject['hdd']">
+                        <mat-option *ngFor="let hdd of PCparts['hdd']" [value]="hdd">{{hdd}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" (click)="saveConfig()">Mentés</button>
+</div>

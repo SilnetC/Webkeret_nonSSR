@@ -1,0 +1,43 @@
+<div class="landing-page">
+      <h1>{{headingText}}</h1>
+      <div>
+            <h2>Szolgáltatások:</h2>
+            <mat-card>
+                  <mat-card-header>
+                        <mat-card-title>Konfiguráció</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-actions align="end">
+                        <button routerLink="/build" mat-button color="primary">Új konfiguráció készítés</button>
+                  </mat-card-actions>
+            </mat-card>
+            <mat-card>
+                  <mat-card-header>
+                        <mat-card-title>Összehasonlítás</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-actions align="end">
+                        <button routerLink="/compare" mat-button color="primary">Konfigurációk összehasonlítása</button>
+                  </mat-card-actions>
+            </mat-card>
+      </div>
+      <div>
+            <h2>Legújabb Videókártyák</h2>
+            <div class="card-container">
+                  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let part of newGPUs">
+                              <mat-card>
+                                    <mat-card-header>
+                                          <mat-card-title
+                                                [ngClass]="part.brand === 'NVIDIA' ? 'nvidia' : 'amd'">{{part.name}}</mat-card-title>
+                                    </mat-card-header>
+                                    <img mat-card-image src="../../../assets/PC/newGPU.jpeg" alt="Videókártya">
+                                    <mat-card-content>
+                                          <p>
+                                                {{part.description}}
+                                          </p>
+                                    </mat-card-content>
+                              </mat-card>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>
