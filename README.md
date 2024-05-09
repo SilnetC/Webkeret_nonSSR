@@ -1,3 +1,10 @@
+# Fontos
+Alap bejelentkezési adatok:
+      email: valami@gmail.com
+      password: sorosterv
+
+A listázás oldalon a szerkesztés gombra kattintva a szerkesztő felület az oldal alján jelenik meg!
+
 # PcProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
