@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy{
 
     if (this.email.value && this.password.value) {
       this.authService.login(this.email.value, this.password.value).then(cred => {
-        console.log(cred);
+        //console.log(cred);
         this.router.navigateByUrl('/landing');
       }).catch(error => {
         console.error(error);

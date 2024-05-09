@@ -24,7 +24,6 @@ export class BuildComponent implements OnInit {
   ngOnInit() {
     this.partsService.getAllParts().subscribe(data => {
       this.PCparts = data[0]; 
-      //console.log(this.PCparts);
       for (let category in this.PCparts) {
         if (category !== 'intel_cpu' && category !== 'amd_cpu') {
           this.ConfigObject[category] = this.PCparts[category][0];
@@ -32,15 +31,6 @@ export class BuildComponent implements OnInit {
       }
       this.updateCpuList();
     });
-    /* this.partsService.getAllParts().subscribe(data => {
-      console.log(data);
-    }); */
-    /* for (let category in this.PCparts) {
-      if (category !== 'intel_cpu' && category !== 'amd_cpu') {
-        this.ConfigObject[category] = this.PCparts[category][0];
-      }
-    }
-    this.updateCpuList(); */
   }
 
   updateCpuList() {
@@ -61,12 +51,9 @@ export class BuildComponent implements OnInit {
         id: '', 
         ...this.ConfigObject
       };
-      //this.konfigok.push({...this.ConfigObject});
-      //console.log(this.konfigok);
 
       // Insert config to database
       this.configService.create(config).then(() => {
-        console.log('Configuration saved successfully!');
         this.router.navigateByUrl('/build/successful/' + this.ConfigObject['name']);
       }).catch(error => {
         console.error('Error saving configuration: ', error);

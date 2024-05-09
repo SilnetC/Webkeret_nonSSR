@@ -26,7 +26,6 @@ export class CompareComponent implements OnInit{
   ngOnInit(): void {
     this.configService.getAllConfig().subscribe((configs: Config[]) => {
       this.configs = configs;
-      //console.log(this.configs);
       this.SelectedConfigs['configName1'] = this.configs[0]['name'];
       this.SelectedConfigs['configName2'] = this.configs[0]['name'];
     });
@@ -36,7 +35,6 @@ export class CompareComponent implements OnInit{
   compareConfigs() {
     this.comparedConfigs['config1'] = this.configs.find(config => config.name === this.SelectedConfigs['configName1']);
     this.comparedConfigs['config2'] = this.configs.find(config => config.name === this.SelectedConfigs['configName2']);
-    console.log(this.comparedConfigs['config1']);
 
     const data = [
       { name: 'Név', pc1: this.comparedConfigs['config1'].name, pc2: this.comparedConfigs['config2'].name },

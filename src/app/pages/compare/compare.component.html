@@ -1,7 +1,7 @@
 <h1>Konfigurációk összehasonlítása</h1>
 
-<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
-      <div fxFlex="50" style="max-width: 50%;">
+<div class="add_form">
+      <div>
             <mat-form-field>
                   <h4>PC 1:</h4>
                   <mat-select [(ngModel)]="SelectedConfigs['configName1']">
@@ -9,7 +9,7 @@
                   </mat-select>
             </mat-form-field>
       </div>
-      <div fxFlex="50" style="max-width: 50%;">
+      <div>
             <mat-form-field>
                   <h4>PC 2:</h4>
                   <mat-select [(ngModel)]="SelectedConfigs['configName2']">
@@ -17,10 +17,10 @@
                   </mat-select>
             </mat-form-field>
       </div>
-      <div fxFlex="50" style="max-width: 50%;">
-            <button mat-raised-button color="primary" (click)="compareConfigs()">Összehasonlítás</button>
+      <div>
+            <button style="margin-bottom: 20px;" mat-raised-button color="primary" (click)="compareConfigs()">Összehasonlítás</button>
       </div>
-      <div fxFlex="50" style="max-width: 50%;">
+      <div>
             <button mat-raised-button color="primary" routerLink="/build">Új konfiguráció létrehozás</button>
       </div>
 </div>

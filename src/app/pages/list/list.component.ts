@@ -24,18 +24,15 @@ export class ListComponent implements OnInit{
 
     this.configService.getConfigsByCpuBrand('AMD').subscribe((configs: Config[]) => {
       this.amdConfigs = configs;
-      console.log(this.amdConfigs);
     });
 
     this.configService.getConfigsByCpuBrand('Intel').subscribe((configs: Config[]) => {
       this.intelConfigs = configs;
-      console.log(this.intelConfigs);
     });
   }
 
   updateConfig() {
     this.configService.update(this.ConfigObject).then(() => {
-      console.log('A konfiguráció frissítve lett...');
       this.currentConfigId = '';
     }).catch((error) => {
       console.error('Hiba történt a konfiguráció frissítése közben: ', error);
@@ -52,7 +49,6 @@ export class ListComponent implements OnInit{
     this.configService.getConfigById(id).subscribe((config: Config | undefined) => {
       if (config) {
         this.currentConfig = config;
-        console.log(this.currentConfig);
         this.currentConfigId = id;
         this.ConfigObject['name'] = this.currentConfig.name;
         this.ConfigObject['case'] = this.currentConfig.case;
@@ -68,7 +64,7 @@ export class ListComponent implements OnInit{
         this.ConfigObject['id'] = this.currentConfig.id;
         this.ConfigObject['createTime'] = this.currentConfig.createTime;
       } else {
-        console.log('Nincs konfiguráció ezzel az azonosítóval: ', id);
+        //console.log('Nincs konfiguráció ezzel az azonosítóval: ', id);
       }
     });
     /* this.currentConfigId = id;
@@ -77,6 +73,6 @@ export class ListComponent implements OnInit{
 
   removeConfig(id: string) {
     this.configService.delete(id);
-    console.log('A konfiguráció törölve lett...');
+    //console.log('A konfiguráció törölve lett...');
   }
 }

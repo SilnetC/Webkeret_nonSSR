@@ -30,14 +30,14 @@ export class RegistrationComponent implements OnInit{
   }
 
   registration() {
-    console.log(this.signUpForm.value);
+    //console.log(this.signUpForm.value);
 
     let email = this.signUpForm.get('email')?.value;
     let password = this.signUpForm.get('password')?.value;
 
     if (email && password) {
       this.authService.registration(email, password).then(cred => {
-        console.log(cred);
+        //console.log(cred);
         const user: User = {
           id: cred.user?.uid as string,
           email: email as string,
@@ -48,7 +48,7 @@ export class RegistrationComponent implements OnInit{
           }
         };
         this.userService.create(user).then(_ => {
-          console.log('Felhasználó sikeresen hozzáadva az adatbázishoz!');
+          //console.log('Felhasználó sikeresen hozzáadva az adatbázishoz!');
           this.router.navigateByUrl('/login');
         }).catch(error => {
           console.error(error);

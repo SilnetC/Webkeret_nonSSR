@@ -6,7 +6,7 @@ import { LandingComponent } from './landing.component';
 
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from '@angular/flex-layout';
+//import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     LandingRoutingModule,
     MatCardModule,
     MatButtonModule,
-    FlexLayoutModule
+    //FlexLayoutModule
   ]
 })
 export class LandingModule { }

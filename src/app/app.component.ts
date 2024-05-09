@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     });
 
     this.authService.isUserLoggedIn().subscribe(user => {
-      console.log(user);
+      //console.log(user);
       this.loggedUser = user;
       localStorage.setItem('user', JSON.stringify(this.loggedUser));
     }, error => {
@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
 
   logout(_?: boolean) {
     this.authService.logout().then(() => {
-      console.log('Sikeres kijelentkezés.');
+      //console.log('Sikeres kijelentkezés.');
     }).catch(error => {
       console.error(error);
     });

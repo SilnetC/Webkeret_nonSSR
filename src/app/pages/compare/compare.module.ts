@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FlexLayoutModule } from '@angular/flex-layout';
+//import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTableModule } from '@angular/material/table';
 
 
@@ -26,7 +26,7 @@ import { MatTableModule } from '@angular/material/table';
     MatSelectModule,
     MatOptionModule,
     MatButtonModule,
-    FlexLayoutModule,
+    //FlexLayoutModule,
     MatTableModule
   ]
 })

@@ -4,8 +4,8 @@
 
 <div class="card-container">
       <h2>AMD Konfigok</h2>
-      <div fxLayout="row wrap" fxLayoutGap="16px grid">
-            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let config of amdConfigs">
+      <div>
+            <div *ngFor="let config of amdConfigs" class="card-element">
                   <mat-card>
                         <mat-card-header>
                               <mat-card-title>{{config.name}}</mat-card-title>
@@ -34,8 +34,8 @@
       </div>
 
       <h2>Intel Konfigok</h2>
-      <div fxLayout="row wrap" fxLayoutGap="16px grid">
-            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let config of intelConfigs">
+      <div>
+            <div *ngFor="let config of intelConfigs" class="card-element">
                   <mat-card>
                         <mat-card-header>
                               <mat-card-title>{{config.name}}</mat-card-title>

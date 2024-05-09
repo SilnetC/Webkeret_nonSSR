@@ -1,4 +1,4 @@
-div {
+.shop-services {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -30,4 +30,13 @@ mat-card-title {
 
 p {
       margin-top: 10px;
+}
+
+.card-container {
+      display: flex;
+      justify-content: space-around;
+}
+
+.gpu-card {
+      width: 300px;
 }

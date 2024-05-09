@@ -6,7 +6,7 @@ import { ListComponent } from './list.component';
 
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from '@angular/flex-layout';
+//import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
@@ -24,7 +24,7 @@ import { MatInputModule } from '@angular/material/input';
     ListRoutingModule,
     MatCardModule,
     MatButtonModule,
-    FlexLayoutModule,
+    //FlexLayoutModule,
     FormsModule,
     MatSelectModule,
     MatOptionModule,
